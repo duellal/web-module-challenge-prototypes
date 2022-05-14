@@ -77,8 +77,29 @@ function Car(model, milesPerGallon) {
 }
 
 Car.prototype.fill = function(gallons){
-  this.tank = this.tank + gallons;
+  return this.tank = this.tank + gallons;
 }
+
+//Below is testing to make sure Car and .fill() works:
+const car1 = new Car('Subaru', 20);
+
+// console.log(car1)
+// console.log(car1.fill(6))
+// console.log(car1)
+
+//Drive function does not reduce the tank yet, need to finish this part of the task
+Car.prototype.drive = function(distance){
+	return this.odometer = this.odometer + distance;
+	let miles = this.tank * this.milesPerGallon
+	return miles
+	return this.tank = (miles - distance)/this.tank;
+}
+
+console.log(car1)
+console.log(car1.fill(6))
+console.log(car1)
+console.log(car1.drive(30))
+console.log(car1)
 
 
 
