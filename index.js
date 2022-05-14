@@ -3,21 +3,54 @@
 
 /*
   TASK 1
-    - Write a Person Constructor that initializes `name` and `age` from arguments.
+    - Write a Person Constructor that initializes `name` and `age` from arguments (this means to put in arguments one by one).
     - All instances of Person should initialize with an empty `stomach` array.
     - Give instances of Person the ability to `.eat("someFood")`:
         + .eat() should recieve a string as a parameter and take some type of edible as an argument
         + When eating an edible, it should be pushed into the `stomach` array.
-        + The `eat` method should have no effect if there are 10 items in the `stomach` array.
+        + The `eat` method should have no effect if there are 10 items in the `stomach` array - the person can't eat more than 10 things at a time.
     - Give instances of Person the ability to `.poop()`:
         + When an instance poops, its `stomach` array should be empty.
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`
+} 
+
+const person1 = new Person('Luiza', 23)
+const person2 = new Person('Devon', 29)
+const person3 = new Person('Matt', 443)
+
+console.log(person1.toString())
+console.log(person2.toString())
+console.log(person3.toString())
+
+person3.eat('fish')
+person3.eat('potatoes')
+person3.eat('lemon')
+
+console.log(person3.stomach)
+person3.poop()
+console.log(person3.stomach)
+
 
 
 /*
