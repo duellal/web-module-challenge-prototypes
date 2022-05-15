@@ -120,14 +120,14 @@ Car.prototype.drive = function(distance){
 */
 
 function Baby(name, age, favoriteToy) {
-  Person.call(this, name, age, favoriteToy)
-  this.favoriteToy = favoriteToy
+  Person.call(this, name, age, favoriteToy);
+  this.favoriteToy = favoriteToy;
 }
 
 Baby.prototype = Object.create(Person.prototype)
 
 Baby.prototype.play = function(){
-  console.log(`Playing with ${this.favoriteToy}.`)
+  return `Playing with ${this.favoriteToy}.`;
 }
 
 const baby1 = new Baby('Ana', .3, 'purple penguin')
@@ -138,6 +138,7 @@ console.log(baby1.stomach)
 baby1.poop()
 console.log(baby1.stomach)
 baby1.play()
+console.log(baby1)
 
 
 
