@@ -89,26 +89,28 @@ const car1 = new Car('Subaru', 20);
 
 
 Car.prototype.drive = function(distance){
-  this.odometer = this.odometer + distance;
-  this.tank = ((this.tank * this.milesPerGallon)-distance)/this.tank;
-  if(this.tank <= 0){
+  const maxDistance = this.tank * this.milesPerGallon
+
+  if(distance > maxDistance){
+    this.odometer += maxDistance
+    this.tank = 0
+
     return `I ran out of fuel at ${this.odometer} miles!`
+  } else{
+    this.odometer += distance;
+    this.tank = ((this.tank * this.milesPerGallon)-distance)/this.tank;
   }
 }
 
-// console.log(car1)
-// console.log(car1.fill(6))
-// console.log(car1)
-// console.log(car1.drive(120))
-// console.log(car1)
-// console.log(car1.fill(10))
-// console.log(car1)
-// console.log(car1.drive(100))
-// console.log(car1)
-// console.log(car1.drive(330))
-// console.log(car1)
-
-
+console.log(car1)
+console.log(car1.fill(6))
+console.log(car1)
+console.log(car1.drive(300))
+console.log(car1)
+console.log(car1.drive(10))
+console.log(car1.fill(20))
+console.log(car1)
+console.log(car1.drive(1000))
 
 
 /*
@@ -120,7 +122,7 @@ Car.prototype.drive = function(distance){
 */
 
 function Baby(name, age, favoriteToy) {
-  Person.call(this, name, age, favoriteToy);
+  Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 }
 
