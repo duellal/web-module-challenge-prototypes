@@ -79,14 +79,14 @@ describe('Instances of Person', () => {
       batmobile.fill(10)
       batmobile.drive(5)
       expect(batmobile.odometer).toEqual(5)
-      expect(batmobile.tank).toEqual(5)
+      expect(batmobile.tank).toEqual(19.5)
     })
-    it.only('drive method increases the odometer miles allowed by tank', ()=>{
+    it('drive method increases the odometer miles allowed by tank', ()=>{
       batmobile.fill(10)
       const res = batmobile.drive(500)
-      expect(batmobile.odometer).toEqual(10)
+      expect(batmobile.odometer).toEqual(200)
       expect(batmobile.tank).toEqual(0)
-      expect(res).toBe('I ran out of fuel at 10 miles!')
+      expect(res).toBe('I ran out of fuel at 200 miles!')
     })
   })
   
